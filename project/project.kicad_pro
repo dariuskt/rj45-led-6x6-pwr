@@ -45,7 +45,7 @@
         "silk_text_upright": false,
         "zones": {
           "45_degree_only": false,
-          "min_clearance": 0.0
+          "min_clearance": 0.5
         }
       },
       "diff_pair_dimensions": [
@@ -385,7 +385,6 @@
       "A0": "rgb(0, 194, 194)",
       "A1": "rgb(0, 194, 194)",
       "A2": "rgb(0, 194, 194)",
-      "A3": "rgb(0, 194, 194)",
       "GND": "rgb(132, 132, 132)",
       "SCL": "rgb(0, 194, 0)",
       "SDA": "rgb(0, 194, 0)"

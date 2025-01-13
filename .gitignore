@@ -9,4 +9,5 @@ panel.*
 *-erc.txt
 *-drc.txt
 gen/*.step
+*.log
 
