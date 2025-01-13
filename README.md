@@ -11,3 +11,13 @@ Dev NOTE: before commit, run `./kibot.sh` to regenerate documentation, bom, gerb
 
 * [schematics.pdf](gen/schematics.pdf)
 * [pcb.pdf with dimensions](gen/pcb.pdf)
+
+
+<img src="gen/img_pcb_2d_front_bare.jpg" width="30%" align="left" />
+<img src="gen/img_pcb_2d_back_bare.jpg" width="30%" align="left" />
+<img src="gen/img_pcb_3d_front.png" width="30%" align="" />
+
+
+---
+
+
