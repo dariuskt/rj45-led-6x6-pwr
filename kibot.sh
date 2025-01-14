@@ -26,9 +26,10 @@ fi
 
 
 # regenerate qr code
-#mkdir -p gen
-#sch_version="$(grep '\(rev "[^"]*\)"' project/project.kicad_sch | cut -d'"' -f2)"
-#echo "http://???.makerspace.lt/v${sch_version}" \
+mkdir -p gen
+sch_version="$(grep '\(rev "[^"]*\)"' project/project.kicad_sch | cut -d'"' -f2)"
+sch_title="$(grep '\(title "[^"]*\)"' project/project.kicad_sch | cut -d'"' -f2)"
+#echo "http://${sch_title}.makerspace.lt/v${sch_version}" \
 #        | qrencode -o - -l L -m1 -d256 -s5 > gen/qr_link.png
 
 # convert png to footprint as bitmap2component cannot be used from cli
@@ -57,7 +58,8 @@ sed -i \
 	-e '/^.*TF.CreationDate.*$/d' \
 	-e '/^.*G04 Created by KiCad.* date .*$/d' \
 	-e '/^.*DRILL file .* date .*$/d' \
-	./gen/*/*.{gbr,drl}
+	-e '/^.*CreationDate": .*$/d' \
+	./gen/*/*.{g,drl}*
 
 # remove garbage changes from schematics.pdf
 sed -i '/[/]CreationDate.*$/d' ./gen/schematics.pdf
@@ -65,9 +67,11 @@ sed -i '/[/]CreationDate.*$/d' ./gen/pcb.pdf
 
 
 # move files around
-rm ./gen/*rc.txt
+rm ./gen/*rc.txt || true
 
 cp -f ./gen/bom.csv ./gen/single/_bom.csv
+
+#mv -f ./gen/project.step ./gen/${sch_title}.step
 
 
 # archive 
